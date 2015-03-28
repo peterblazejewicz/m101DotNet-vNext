@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using Newtonsoft.Json;
 
 namespace M101DotNet
 {
@@ -20,16 +23,25 @@ namespace M101DotNet
           var connectionString = "mongodb://localhost:27017";
           var client = new MongoClient(connectionString);
           var db = client.GetDatabase("test");
-          var doc = new BsonDocument
+          var person = new Person
           {
-            {"name", "Jones"}
+            Name = "Jones",
+            Age = 30,
+            Colors = new List<string> {"red", "blue"},
+            Pets = new List<Pet> 
+            {
+              new Pet
+              {
+                Name = "Puffy",
+                Type = "Pig"
+              }
+            }
           };
-          doc.Add("age", 30);
-          doc["profession"] = "hacker";
-          var nestedArray = new BsonArray();
-          nestedArray.Add(new BsonDocument("color", "red"));
-          doc.Add("array", nestedArray);
-          Console.WriteLine(doc);
+          Console.WriteLine(person);
+          // using (var writer = new JsonWriter(Console.Out))
+          // {
+          //   BsonSerializer.Serialize(writer, person);
+          // };
         }
     }
 }
