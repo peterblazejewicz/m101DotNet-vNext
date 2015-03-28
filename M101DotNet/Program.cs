@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using MongoDB.Driver;
 
 namespace M101DotNet
 {
@@ -15,7 +16,7 @@ namespace M101DotNet
         
         static async Task MainAsync(string[] args)
         {
-          
+            var client = new MongoClient();
         }
     }
 }
