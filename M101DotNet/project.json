@@ -1,8 +1,7 @@
 {
   "version": "1.0.0-*",
   "dependencies": {
-    "MongoDB.Driver": "2.0.0-rc0",
-    "Newtonsoft.Json": "7.0.1-beta1"
+    "MongoDB.Driver": "2.0.0-rc0"
   },
   "commands": {
     "run": "run"
