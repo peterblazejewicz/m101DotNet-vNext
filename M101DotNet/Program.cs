@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
-using Newtonsoft.Json;
+using MongoDB.Bson.IO;
 
 namespace M101DotNet
 {
@@ -38,10 +38,10 @@ namespace M101DotNet
             }
           };
           Console.WriteLine(person);
-          // using (var writer = new JsonWriter(Console.Out))
-          // {
-          //   BsonSerializer.Serialize(writer, person);
-          // };
+          using (var writer = new JsonWriter(Console.Out))
+          {
+            BsonSerializer.Serialize(writer, person);
+          };
         }
     }
 }
