@@ -1,6 +1,8 @@
 # m101DotNet-vNext
 ===
 
+> Note: this require update due to new .Net toolchain and Mono update (but after Mono 4.0.1 or later is released due to bugs on OS X)
+
 To install `MongoDB.Driver` locally run:
 
 ```
